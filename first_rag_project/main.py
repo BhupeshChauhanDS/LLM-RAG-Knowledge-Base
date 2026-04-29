@@ -21,6 +21,8 @@ for i, chunk in enumerate(chunks):
 
     import langchain
 langchain.debug = False # Manually setting the missing attribute
+langchain.verbose = False
+langchain.llm_cache = None  # This fixes the new error you just got
 
 import os
 from dotenv import load_dotenv
@@ -30,7 +32,7 @@ from langchain_community.vectorstores import FAISS
 
 load_dotenv()
 
-api_key = "AIzaSyA_D711C2g8HUBWOSUFeckLQCpn6iJQdkk"
+api_key = "AIzaSyDeWqATG0tNw0IV_1Q3u4_FZuLbnDr7Ed4"
 embeddings = GoogleGenerativeAIEmbeddings(
 model="models/gemini-embedding-001", # Change this line
     google_api_key=api_key
@@ -48,7 +50,7 @@ print("Vector store created successfully!")
 
 # Create retriever
 retriever = vector_store.as_retriever(
-    search_kwargs={"k": 3}
+    search_kwargs={"k": 2}
 )
 
 # Ask a question
@@ -61,3 +63,36 @@ results = retriever.invoke(query)
 for i, doc in enumerate(results):
     print(f"\n--- Result {i+1} ---\n")
     print(doc.page_content)
+
+
+#   final llm model deploy
+
+
+from langchain_google_genai import ChatGoogleGenerativeAI
+
+# Create Gemini model
+llm = ChatGoogleGenerativeAI(
+    model="gemini-1.5-flash", # Use the 2.0 version 
+    google_api_key=api_key,
+    temperature=0.3
+)
+
+# Combine retrieved chunks
+context = "\n\n".join([doc.page_content for doc in results])
+
+# Final prompt
+prompt = f"""
+Answer the question based only on the context below.
+
+Context:
+{context}
+
+Question:
+{query}
+"""
+
+# Generate answer
+response = llm.invoke(prompt)
+
+print("\nFINAL ANSWER:\n")
+print(response.content)

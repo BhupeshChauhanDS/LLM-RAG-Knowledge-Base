@@ -1,0 +1,33 @@
+# ── Core LangChain Framework ──────────────────────────────────────────
+langchain==1.2.15
+langchain-core==0.2.43
+langchain-classic==1.0.4
+langchain-protocol==0.0.12
+langchain-community==0.4.1
+langchain-text-splitters==1.1.2
+
+# ── Google AI / Gemini Integration ───────────────────────────────────
+langchain-google-genai==1.0.10
+google-generativeai==0.7.2
+google-genai==1.73.1
+google-ai-generativelanguage==0.6.6
+
+# ── Google API Auth & Clients ─────────────────────────────────────────
+google-api-core==2.30.3
+google-api-python-client==2.194.0
+google-auth==2.49.2
+google-auth-httplib2==0.3.1
+googleapis-common-protos==1.74.0
+
+# ── Vector Store (FAISS) ──────────────────────────────────────────────
+faiss-cpu==1.13.2
+
+# ── PDF Loading ───────────────────────────────────────────────────────
+pypdf==6.10.2
+
+# ── Environment Variables ─────────────────────────────────────────────
+python-dotenv==1.2.2
+
+# ── LLM (Groq) ───────────────────────────────────────────────────────
+langchain-groq==0.1.9
+groq==0.4.2

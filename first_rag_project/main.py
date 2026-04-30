@@ -32,7 +32,7 @@ from langchain_community.vectorstores import FAISS
 
 load_dotenv()
 
-api_key = "AIzaSyDeWqATG0tNw0IV_1Q3u4_FZuLbnDr7Ed4"
+api_key = os.getenv("GOOGLE_API_KEY")
 embeddings = GoogleGenerativeAIEmbeddings(
 model="models/gemini-embedding-001", # Change this line
     google_api_key=api_key
@@ -72,7 +72,7 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 
 # Create Gemini model
 llm = ChatGoogleGenerativeAI(
-    model="gemini-1.5-flash", # Use the 2.0 version 
+    model="gemini-2.0-flash",
     google_api_key=api_key,
     temperature=0.3
 )
@@ -96,3 +96,6 @@ response = llm.invoke(prompt)
 
 print("\nFINAL ANSWER:\n")
 print(response.content)
+
+
+# Final

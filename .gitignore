@@ -1,1 +1,8 @@
+# ignore raw data or my pdf
 first_rag_project/Data/
+
+# Ignore my googl API key
+first_rag_project/.env
+
+# ignore virtual environment
+venv

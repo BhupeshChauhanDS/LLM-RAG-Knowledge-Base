@@ -44,7 +44,7 @@ What skills does Bhupesh have?.
 
 ## Demo Output
 
-![RAG Output](screenshots/output.png)
+![RAG Output](screenshot/output.png)
 
 ## Limitations
 

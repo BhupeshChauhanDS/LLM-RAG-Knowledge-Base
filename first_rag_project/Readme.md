@@ -51,3 +51,11 @@ What skills does Bhupesh have?.
 - Only supports single PDF at a time
 - Answer quality depends on chunk size and overlap settings
 - Gemini API requires an active internet connection and valid key
+
+## Learning Outcomes
+
+- Understanding of RAG architecture
+- Semantic search implementation
+- Working with vector databases
+- LangChain integration with Gemini API
+- PDF-based contextual question answering

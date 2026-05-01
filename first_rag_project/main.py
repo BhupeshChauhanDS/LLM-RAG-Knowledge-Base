@@ -19,7 +19,7 @@ for i, chunk in enumerate(chunks):
 
     # STEP 3 — Create embeddings + FAISS
 
-    import langchain
+import langchain
 langchain.debug = False # Manually setting the missing attribute
 langchain.verbose = False
 langchain.llm_cache = None  # This fixes the new error you just got
@@ -72,7 +72,7 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 
 # Create Gemini model
 llm = ChatGoogleGenerativeAI(
-    model="gemini-2.0-flash",
+    model="gemini-2.5-flash",
     google_api_key=api_key,
     temperature=0.3
 )
